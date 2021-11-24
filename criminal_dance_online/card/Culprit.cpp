@@ -2,5 +2,5 @@
 #include "../Card.h"
 
 Card::CardType Bystander::get_type() const{
-    return Card::CardType::BYSTANDER;
+    return Card::CardType::CULPRIT;
 }
