@@ -360,11 +360,11 @@ bool Player::can_select_card(int index){
     return true;
 }
 
-string Player::get_name(){
+string Player::get_name() const{
     return name;
 }
 
-string Player::get_type(){
+string Player::get_type() const{
     switch(type){
         case Player::Type::CIVILIAN:
             return "Civilian";
@@ -375,7 +375,7 @@ string Player::get_type(){
     }
 }
 
-string Player::get_hand(){
+string Player::get_hand() const{
     string card_list = "[ ";
     
     for (int i = 0; i<hand.size(); i++){
@@ -435,6 +435,6 @@ string Player::get_hand(){
     return card_list;
 }
 
-Card* Player::get_card(int index){
+Card* Player::get_card(int index) const{
     return hand[index];
 }
