@@ -1,3 +1,9 @@
+/*********************************
+/
+/
+/
+/
+/*********************************/
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 
@@ -25,7 +31,7 @@ public:
 
     void run();
 
-    // Print
+    // Print functions
     void print_all_players();
     void print_current_player();
     void print_all_player_status();
@@ -39,9 +45,13 @@ public:
     };
 
 private:
+    // number of players in this match
     const int number_of_players;
+    // which player need to use card
     Player* current_player;
+    // the deck in this match
     vector<int> deck;
+    // currently is what round 
     int round;
 };
 
