@@ -1,4 +1,3 @@
-
 #include "Card.h"
 
 Card::Card(int card_type) : type(static_cast<Type>(card_type)), useable(true) {
