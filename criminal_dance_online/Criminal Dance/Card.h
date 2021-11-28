@@ -7,6 +7,7 @@ using namespace std;
 
 class Card {
     public:
+        // different type of cards in this game
         enum class Type{
             FIRST_FINDER = 1, 
             CULPRIT = 2, 
@@ -21,12 +22,21 @@ class Card {
             BARTER = 11, 
             JUVENILE = 12
         };
+        // constructor
         Card(int type);
-        Card::Type get_type();
+        // using default destructor
+        ~Card() = default;
+        
+        // accessor
+        Card::Type get_type() const;
+        bool can_use() const;
+        
+        // mutator
         void set_useable(bool k);
-        bool can_use();
     private:
+        // type of this card
         Type type;
+        // whether this card can exchange or not
         bool useable;
 };
 
