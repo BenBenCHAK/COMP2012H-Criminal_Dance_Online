@@ -1,4 +1,6 @@
 Criminal Dance Instructions
+*******************
+To do: add comment
 
 Creating Players
 adding each next player means that the player added is sitting at previous player left hand side in the real world
