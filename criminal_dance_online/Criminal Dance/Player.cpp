@@ -380,6 +380,7 @@ string Player::get_type() const{
         case Player::Type::ACCOMPLICE:
             return "Accomplice";
     }
+    return "";
 }
 
 string Player::get_hand() const{
