@@ -50,10 +50,10 @@ public:
     void set_type(Type type);
 
     // accessors
-    string get_name();
-    string get_hand();
-    Card* get_card(int index);
-    string get_type();
+    string get_name() const;
+    string get_hand() const;
+    Card* get_card(int index) const;
+    string get_type() const;
 
 
 
