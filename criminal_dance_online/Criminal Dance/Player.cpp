@@ -65,7 +65,7 @@ int Player::exchange_select_card(){
         cin >> selected_card;
         selected_card--;
         if(hand[selected_card]->can_use() == false){
-            cout << "This card can not be passed." << endl;
+            cout << "This card cannot be passed." << endl;
         }
     }while(hand[selected_card]->can_use() == false);
     return selected_card;
@@ -83,7 +83,7 @@ int Player::draw_select_card(){
         cin >> draw_selected_card;
         draw_selected_card--;
         if(prev_player->hand[draw_selected_card]->can_use() == false){
-            cout << "This card can not be drawn again." << endl;
+            cout << "This card cannot be drawn again." << endl;
         }
     }while(prev_player->hand[draw_selected_card]->can_use() == false);
     return draw_selected_card; 
@@ -128,7 +128,7 @@ Player* Player::select_target(){
         }
         if(target->hand.size() > 0) // if the target has no cards repeat to choose target again 
             break;
-        cout << "Can't choose no cards player" << endl << endl;
+        cout << "You can't choose players with no cards." << endl << endl;
     }
     return target;
 }
@@ -177,8 +177,8 @@ void Player::use_card(int index){
         case 2:{
             set_type(Player::Type::CULPRIT);
             game_over = true;
-            cout << "CULPRIT use the last card" << endl;
-            cout << "CULPRIT and ACCOMPLICE win" << endl;
+            cout << "The CULPRIT used his/her last card" << endl;
+            cout << "CULPRIT and ACCOMPLICE wins" << endl;
             Player* temp = this;
             do{
                 if(temp->type != Player::Type::CIVILIAN){
@@ -202,8 +202,8 @@ void Player::use_card(int index){
             } 
             else {
                 target->set_type(Player::Type::CULPRIT);
-                cout << "The detective found the culprit." << endl;
-                cout << "CIVILIAN win" << endl;
+                cout << "The DETECTIVE found the CULPRIT." << endl;
+                cout << "CIVILIAN wins" << endl;
                 Player* temp = this;
                 game_over = true;
                 do{
@@ -241,8 +241,8 @@ void Player::use_card(int index){
             // CULPRIT abandon the CULPRIT card
             if(abandon_card_index == target->has_card(2)){
                 target->set_type(Player::Type::CULPRIT);
-                cout << "BASTET make the CULPRIT abandon the CULPRIT card" << endl;
-                cout << "CIVILIAN win" << endl;
+                cout << "The BASTET made the CULPRIT abandon the CULPRIT card." << endl;
+                cout << "CIVILIAN wins" << endl;
                 game_over = true;
                 Player* temp = this;
                 do{
@@ -271,7 +271,7 @@ void Player::use_card(int index){
             do{
                 int passing_card_index = current->exchange_select_card();
                 if(passing_card_index == -1){
-                    cout << current->get_name() << " you dont have passable card to pass" << endl;
+                    cout << "You ( " << current->get_name() << " ) don't have any passable cards." << endl;
                     current = current->next_player;
                     continue;
                 }
@@ -292,7 +292,7 @@ void Player::use_card(int index){
             do{
                 int draw_card_index = current->draw_select_card();
                 if(draw_card_index == -1){
-                    cout << current->prev_player->get_name() << " dont have passable card to let you ( " << current->get_name() << " ) draw " << endl;
+                    cout << current->prev_player->get_name() << " doesn't have any passable cards to let you ( " << current->get_name() << " ) draw." << endl;
                     current = current->next_player;
                     continue;
                 }
