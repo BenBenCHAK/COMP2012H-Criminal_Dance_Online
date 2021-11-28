@@ -26,8 +26,11 @@ public:
 
     Player* next_player;
     Player* prev_player;
-
+    
+    // constructor 
     Player(string name);
+    // destructor
+    ~Player();
 
     void add_new_player(string name);
     
