@@ -29,7 +29,7 @@ public:
     
     // constructor 
     Player(string name);
-    // destructor
+    // destructor to deallocate the new card type in Vector<Card*> hand
     ~Player();
 
     void add_new_player(string name);
