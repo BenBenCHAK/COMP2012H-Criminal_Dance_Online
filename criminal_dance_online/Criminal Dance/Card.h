@@ -28,7 +28,7 @@ class Card {
             BARTER = 11, 
             JUVENILE = 12
         };
-        // constructor
+        // constructor that the paremeter is the card type
         Card(int type);
         // using default destructor
         ~Card() = default;
