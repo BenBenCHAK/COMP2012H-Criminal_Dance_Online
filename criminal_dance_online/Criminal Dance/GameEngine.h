@@ -1,8 +1,9 @@
 /*********************************
-/*
-/*
-/*
-/*
+/* This is the Game Engine for operating the game.
+/* Game will be constructed through this class.
+/* It store the number of players in this match, and the current player and round.
+/* Creating a unique random deck just for this match, and then distrubuting 4 cards to each player.
+/* Providing the match infomations of the game.
 /*********************************/
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
@@ -51,7 +52,7 @@ private:
     const int number_of_players;
     // which player need to use card
     Player* current_player;
-    // the deck in this match
+    // the deck in this match, will become empty after distrubuting the card to players
     vector<int> deck;
     // currently is what round 
     int round;
