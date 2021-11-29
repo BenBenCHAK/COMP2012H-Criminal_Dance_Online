@@ -24,17 +24,13 @@ void Player::add_new_player(const string& name){
     prev_player = new_player;
 }
 
-void Player::reset(){
-    first_player = false;
-}
-
 // Initialize which player is the first player
 const bool Player::is_first_player(){
-    if (has_card(1) == -1){
+    if (has_card(1) == -1)
         first_player = false;
-    } else {
+    else
         first_player = true;
-    }
+    
     return first_player;
 }
 
@@ -54,7 +50,6 @@ const bool Player::is_player1() const{
     return first_player;
 }
 
-// Get the hand card list
 const string Player::get_hand() const{
     string card_list = "[ ";
     
@@ -112,6 +107,7 @@ const string Player::get_hand() const{
     }
     
     card_list += "]";
+    
     return card_list;
 }
 
@@ -119,8 +115,10 @@ const string Player::get_type() const{
     switch(type){
         case Player::Type::CIVILIAN:
             return "Civilian";
+            
         case Player::Type::CULPRIT:
             return "Culprit";
+            
         case Player::Type::ACCOMPLICE:
             return "Accomplice";
     }
@@ -131,8 +129,13 @@ Card* Player::get_card(const int& index) const{
     return hand[index];
 }
 
+// Mutators
 void Player::set_type(const Player::Type& type){
     this->type = type;
+}
+
+void Player::reset(){
+    first_player = false;
 }
 
 // Check whether the player has the input type of card, if yes, return the position in vector hand, otherwise return -1.
@@ -147,19 +150,23 @@ const int Player::has_card(const int& type) const{
 
 // Return the index of which card the player want to use of vector hand. Return -1 if the player does not have any cards in hand.
 const int Player::select_card() const{
+    // Return -1 if the player does not have any cards in hand.
     if(hand.size() == 0)
         return -1;
+    
     int selected_card;
+    
     cout << "Please select a card to use." << endl;
     cout << "Card List: " << get_hand() << endl;
     cin >> selected_card;
     selected_card--;
     
-    // repect to force player to select a useable card
+    // Repect to force the player to select a useable card.
     while (!can_select_card(selected_card)){
         cout << endl << "Cannot select this card. Please select another." << endl << endl;
         cout << "Please select a card to use." << endl;
         cout << "Card List: " << get_hand() << endl;
+        
         cin >> selected_card;
         selected_card--;
     }
@@ -169,7 +176,7 @@ const int Player::select_card() const{
 
 // Return whether the card can be used according to the card usage limitation.
 const bool Player::can_select_card(const int& index) const{
-    // out of bound
+    // input out of bound
     if (index>=hand.size()||index<0){
         return false;
     }
@@ -204,6 +211,7 @@ const bool Player::can_select_card(const int& index) const{
 void Player::use_card(const int& index){
     Player* target;
     Card* removing_card = hand[index];
+    
     int card_type = static_cast<int>(removing_card->get_type());
 
     // Because BASTET card will always exist on the game, so it will not be deleted when used
@@ -218,9 +226,10 @@ void Player::use_card(const int& index){
 
         case 2:{ // CULPRIT -> Criminals wins and print out the result
             set_type(Player::Type::CULPRIT);
-            game_over = true;
+            
             cout << "The CULPRIT used his/her last card" << endl;
             cout << "CULPRIT and ACCOMPLICE wins" << endl << endl;
+            
             Player* temp = this;
             do{
                 if(temp->type != Player::Type::CIVILIAN){
@@ -231,6 +240,7 @@ void Player::use_card(const int& index){
                 }
                 temp = temp->next_player;
             }while(temp != this);
+            game_over = true;
             
             return;
         }
@@ -239,17 +249,20 @@ void Player::use_card(const int& index){
                 return;
             
             target = select_target();
+            
             // the targeted player is not holding the CULPRIT card or having ALIBI at the same time
             if (target->has_card(4) != -1 || target->has_card(2) == -1){
                 cout << target->get_name() << " is not the culprit." << endl;
             } 
+            
             // sucessfully guess who is holding CULPRIT card -> CIVILIAN wins and print out the result
             else { 
                 target->set_type(Player::Type::CULPRIT);
+                
                 cout << "The DETECTIVE found the CULPRIT." << endl;
                 cout << "CIVILIAN wins" << endl << endl;
+                
                 Player* temp = this;
-                game_over = true;
                 do{
                     if(temp->type == Player::Type::CIVILIAN){
                         cout << temp->get_name() << " wins " << endl;
@@ -259,6 +272,7 @@ void Player::use_card(const int& index){
                     }
                     temp = temp->next_player;
                 }while(temp != this);
+                game_over = true;
             }
             return;
         }
@@ -272,6 +286,7 @@ void Player::use_card(const int& index){
         case 6: // WITNESS -> choose a player to view his/her all card in hand.
             target = select_target();
             cout << endl;
+            
             cout << target->get_name() << "'s hands: ";
             cout << target->get_hand() << endl << endl;
             return;
@@ -280,22 +295,23 @@ void Player::use_card(const int& index){
             return;
 
         case 8:{ // BASTET -> Choose a player who need to discard a card from his/her hand.
+            // reset all card to selectable (discardable)
             reset_AllCards_selectable();
+            
             target = select_target();
-            int abandon_card_index = target->exchange_select_card();
+            int discard_card_index = target->exchange_select_card();
             
             // targered player discard the CULPRIT card -> CIVILIAN wins and print out the result
-            if(abandon_card_index == target->has_card(2)){
+            if(discard_card_index == target->has_card(2)){
                 target->set_type(Player::Type::CULPRIT);
                 
-                delete target->hand[abandon_card_index];
-                target->hand.erase(target->hand.begin()+abandon_card_index);
+                delete target->hand[discard_card_index];
+                target->hand.erase(target->hand.begin()+discard_card_index);
                 delete removing_card;
                 hand.erase(hand.begin()+index);
                 
-                cout << "The BASTET made the CULPRIT abandon the CULPRIT card." << endl;
+                cout << "The BASTET made the targeted player discard the CULPRIT card." << endl;
                 cout << "CIVILIAN wins" << endl << endl;
-                game_over = true;
                 Player* temp = this;
                 do{
                     if(temp->type == Player::Type::CIVILIAN){
@@ -306,15 +322,17 @@ void Player::use_card(const int& index){
                     }
                     temp = temp->next_player;
                 }while(temp != this);
+                game_over = true;
                 return;
             }
             
             // targered player discard the other card -> targeted player receive this card (BASTET) to his/her hand 
-            delete target->hand[abandon_card_index];
-            target->hand.erase(target->hand.begin()+abandon_card_index);
+            delete target->hand[discard_card_index];
+            target->hand.erase(target->hand.begin()+discard_card_index);
             target->add_card(removing_card);
             hand.erase(hand.begin()+index);
-
+            
+            // reset all card to selectable
             reset_AllCards_selectable();
             return;
         }
@@ -323,7 +341,7 @@ void Player::use_card(const int& index){
                      If current player does not have any passable card, ie. no cards in hand or the only card is the recived card,
                      then skip the current player (next player will not receive any card but still need to proced the above process). */
             
-            // reset all card to selectable(passable)
+            // reset all card to selectable (passable)
             reset_AllCards_selectable();
             Player* current = this;
             
