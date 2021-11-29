@@ -23,25 +23,24 @@ public:
     GameEngine();
     // destructor for deallocate the new Player type
     ~GameEngine();
-    // User input
-    int prompt_for_num_players();
-    string prompt_for_player_name();
+    // User input functions
+    const int prompt_for_num_players();
+    const string prompt_for_player_name();
 
     // Builds game
     vector<int> set_deck();
     void distribute_cards();
     void find_first_player();
 
+    // game run function until the end of game
     void run();
 
-    // Print functions
-    void print_all_players();
-    void print_current_player();
-    void print_all_player_status();
+    // accessor
+    const int get_number_of_players() const;
     
-    // accessors
-    int get_number_of_players() const;
-
+    // Print functions
+    void print_all_player_status() const;
+    
     enum class GameOption {
         CHOOSE_CARD = 1,
         QUIT = 2
