@@ -47,13 +47,13 @@ public:
     
     // These function is used when initalizing the game
     void add_new_player(string name);
-    bool is_player1();
     void reset();
     bool is_first_player();
     void init_hand(vector<int> card_list);
     
     // Accessors
     string get_name() const;
+    bool is_player1() const;
     string get_hand() const;
     string get_type() const;
     // Return a pointer pointing to the card which hand[index] is pointing at.
