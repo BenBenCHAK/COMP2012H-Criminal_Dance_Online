@@ -1,6 +1,7 @@
 Criminal Dance
 ********************************************
-Criminal Dance is a faction game. In the game, CULPRIT need to hide his/her identity and Civilians need to try their best to find who is holding CULPRIT. However, since the identity of players will be exchanged, which increase the uncertainty and interest. 
+Criminal Dance is a faction game. In the game, CULPRIT need to hide his/her identity and Civilians need to try their best to find who is holding CULPRIT. 
+However, since the identity of players will be exchanged, which increase the uncertainty and interest. 
 ********************************************
 Number of Player:
   3-8
