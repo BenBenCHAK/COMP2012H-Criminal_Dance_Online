@@ -343,7 +343,7 @@ void Player::use_card(int index){
     }
 }
 
-void Player::set_type(Player::Type type){
+void Player::set_type(const Player::Type& type){
     this->type = type;
 }
 
@@ -454,6 +454,6 @@ string Player::get_hand() const{
     return card_list;
 }
 
-Card* Player::get_card(int index) const{
+Card* Player::get_card(const int& index) const{
     return hand[index];
 }
