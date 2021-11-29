@@ -66,18 +66,18 @@ public:
     // Choose a player who must have card(s) in hand
     Player* select_target();
     
-    // For using INFO_EXCHANGE and BARTER card type to select the pass card. Return the index of which card this wants to pass to the next player.
-    // Return -1 if this player does not have any passable cards.
+    // For using INFO_EXCHANGE, BARTER and BASTET card type to select the passing/exchanging/discarding card.
+    // Return the index of which card this player wants to choose. Return -1 if this player does not have any passable/exchangeble cards.
     const int exchange_select_card() const;
     
-    // For using RUMOR card type to select the draw card. Return the index of which card this player wants to draw from the previous player vector hand. 
+    // For using RUMOR card type to select the drawn card. Return the index of which card this player wants to draw from the previous player vector hand. 
     // Return -1 if previous player does not have any drawable cards.
     const int draw_select_card() const;
     
     // Input a point to card. Add this card to this player vector hand, that card cannot be passed/drawn again in this round.
     void add_card(Card* const card);
     
-    // After passing/drawing/exchanging cards for a round, need to reset all card to selectable.
+    // After passing/drawing/exchanging/discarding cards for a round, reset all cards to selectable.
     void reset_AllCards_selectable();
 
 private:
