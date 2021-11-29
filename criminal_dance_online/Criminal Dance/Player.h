@@ -66,7 +66,7 @@ public:
     // Choose a player who must have card(s) in hand
     Player* select_target();
     
-    // For using INFO_EXCHANGE card type to select the pass card. Return the index of which card this wants to pass to the next player.
+    // For using INFO_EXCHANGE and BARTER card type to select the pass card. Return the index of which card this wants to pass to the next player.
     // Return -1 if this player does not have any passable cards.
     const int exchange_select_card() const;
     
