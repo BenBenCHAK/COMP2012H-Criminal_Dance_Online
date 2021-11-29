@@ -58,13 +58,15 @@ Card function:
                   
   ALIBI:          This card do no actions when used. If a player is holding the CULPRIT card and this card at the same time, he/she will not be catched by DETECTIVE.
   
-  ACCOMPLICE:     The player who use this card in his/her turn will become an accomplice (not effected when just holding in hand). Sharing the same match outcome with culprit.
+  ACCOMPLICE:     The player who use this card in his/her turn will become an accomplice (not effected when just holding in hand). 
+                  Sharing the same match outcome with culprit.
   
   WITNESS:        Choose a player to view his/her all card in hand.
   
   BYSTANDER:      This card do no actions when used.
   
-  BASTET:         Choose a player who need to discard a card from his/her hand. If the discarded card is CULPRIT, Civilian wins and Criminals loses. Otherwise, the target player                   receive this card to his/her hand.
+  BASTET:         Choose a player who need to discard a card from his/her hand. If the discarded card is CULPRIT, Civilian wins and Criminals loses. 
+                  Otherwise, the target player receive this card to his/her hand.
   
   INFO_EXCHANGE:  Starting from the player who use this card, choose a card in hand and pass to left side player and repect this process clockwise direction one by one. 
                   The Player can see the recived card but cannot pass the recived card again to the next player. 
