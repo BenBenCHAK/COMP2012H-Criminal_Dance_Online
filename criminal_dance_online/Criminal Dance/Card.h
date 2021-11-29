@@ -35,7 +35,7 @@ class Card {
         
         // accessors
         Card::Type get_type() const;
-        bool can_use() const;
+        bool can_select() const;
         
         // mutator
         void set_selectable(bool k);
