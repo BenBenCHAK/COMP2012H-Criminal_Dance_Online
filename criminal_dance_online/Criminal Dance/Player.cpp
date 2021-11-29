@@ -199,7 +199,8 @@ void Player::use_card(int index){
             target = select_target();
             if (target->has_card(4) != -1 || target->has_card(2) == -1){
                 cout << target->get_name() << " is not the culprit." << endl;
-                target->set_type(Player::Type::CIVILIAN);
+                if(target->get_type() != "Accomplice")
+                    target->set_type(Player::Type::CIVILIAN);
             } 
             else {
                 target->set_type(Player::Type::CULPRIT);
