@@ -1,4 +1,4 @@
-Criminal Dance
+Criminal Dance (犯人在跳舞)
 ********************************************
 Criminal Dance is a faction game. In the game, CULPRIT need to hide his/her identity and Civilians need to try their best to find who is holding CULPRIT. 
 However, since the identity of players will be exchanged, which increase the uncertainty and interest. 
