@@ -69,14 +69,15 @@ Card function:
   BASTET:         Choose a player who need to discard a card from his/her hand. If the discarded card is CULPRIT, Civilian wins and Criminals loses. 
                   Otherwise, the targeted player receive this card to his/her hand.
   
-  INFO_EXCHANGE:  Starting from the player who use this card, choose a card in hand and pass to left side player and repect this process clockwise direction one by one. 
-                  The Player can see the recived card but cannot pass the recived card again to the next player. 
-                  If a player does not have any passable card, ie. no cards in hand or the only card is the recived card, then skip this player. 
+  INFO_EXCHANGE:  Starting from this player, choose a card in hand and pass to the next player and repect this process one by one. 
+                  Players can see the recived card but cannot pass the recived card again to the next player. 
+                  If current player does not have any passable card, ie. no cards in hand or the only card is the recived card,
+                  then skip the current player (next player will not receive any card but still need to proced the above process).
                   
-  RUMOR:          Starting from the player who use this card, draw a card from the right side player and repect this process in clockwise direction one by one. 
-                  The card drawn from right side player cannot be drawn again from the left side player. 
-                  If a player does not have any drawable card to let the left side player draw, ie. no cards in hand or the only card is the drawn card, 
-                  then skip the left side playe. 
+  RUMOR:          Starting from this player, draw a card from the pervious player and repect this process one by one.
+                  The card drawn from the pervious player cannot be drawn again by the next player. 
+                  If the pervious player does not have any drawable card to let the current player draw, ie. no cards in hand or the only card is the drawn card, 
+                  then skip the current player (current player will not draw and receive any cards but still need to proced the above process). 
                   
   BARTER:         Player who use this card can choose a player who have card in hand to exchange a card in hand. 
                   If the player does not have any card in hand, he/she will take the card from the targeted player instead of exchanging. 
