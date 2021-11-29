@@ -1,8 +1,8 @@
 /*************************************
-/* This class will store a player name, his/her own card in hand, his/her type, his/her next player and pervious player, and whether this player is the first player to use card.
+/* Player are created using this class Player, this will store the player name, his/her own card in hand, his/her type, his/her next player and pervious player, 
+/* and whether this player is the first player to use card.
 /* Since every player knows his/her next player and pervious player, every players are linked together and the game will continous by moving the turn to next player.
 /* When a player use a card, first will check whether the card can be use. If it can be use, operations will be conductd according to the type of used card.
-/* 
 /************************************/
 #ifndef PLAYER_H
 #define PLAYER_H
