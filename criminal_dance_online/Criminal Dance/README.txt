@@ -117,9 +117,9 @@ Crad selection:
    player b need to enter 1 to target player c / 2 to target player a.
    
  End of the game:
-  There are 3 ways to finish a game:
+  There are 3 ways to finish a game and the result will be printed as follow:
     1) DETECTIVE sucessfully find the CULPRIT card           - Civilians wins & Criminals loses 
-        The following will be printed:
+        
             The DETECTIVE found the CULPRIT.
             CIVILIAN wins
             c lose
