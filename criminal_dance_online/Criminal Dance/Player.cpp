@@ -320,7 +320,8 @@ void Player::use_card(const int& index){
         }
         case 9: { /* INFO_EXCHANGE -> Starting from this player, choose a card in hand and pass to the next player and repect this process one by one. 
                      Players can see the recived card but cannot pass the recived card again to the next player. 
-                     If a player does not have any passable card, ie. no cards in hand or the only card is the recived card, then skip this player. */
+                     If current player does not have any passable card, ie. no cards in hand or the only card is the recived card,
+                     then skip the current player (next player will not receive any card but still need to proced the above process). */
             
             // reset all card to selectable(passable)
             reset_AllCards_selectable();
@@ -352,10 +353,10 @@ void Player::use_card(const int& index){
             reset_AllCards_selectable();
             return;
         }
-        case 10:{ /* RUMOR -> Starting from this player, draw a card from the pervious player and repect this process repect this process one by one.
+        case 10:{ /* RUMOR -> Starting from this player, draw a card from the pervious player and repect this process one by one.
                      The card drawn from the pervious player cannot be drawn again by the next player. 
-                     If a player does not have any drawable card to let the next player draw, ie. no cards in hand or the only card is the drawn card, 
-                     then skip the next player (next player will not draw and receive any cards). */
+                     If the pervious player does not have any drawable card to let the current player draw, ie. no cards in hand or the only card is the drawn card, 
+                     then skip the current player (current player will not draw and receive any cards but still need to proced the above process). */
             
             // reset all card to selectable (drawable)
             reset_AllCards_selectable();
