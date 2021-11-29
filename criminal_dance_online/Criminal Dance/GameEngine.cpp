@@ -12,7 +12,7 @@ GameEngine::GameEngine():number_of_players(prompt_for_num_players()), deck(set_d
     find_first_player(); // sets current player to FIRST_FINDER
     cout << endl;
     print_all_player_status();
-    cout << endl << " ============= Match created ============= " << endl << endl;
+    cout << endl << " ================ Match created ================ " << endl << endl;
     // Game ready to start.
     
 }
@@ -140,7 +140,7 @@ void GameEngine::run(){
         cout << endl;
         if (current_player->is_player1()){
             round++;
-            cout << endl << " ============= ROUND " << round << " ============="<< endl << endl;
+            cout << endl << " ================ ROUND " << round << " ================"<< endl << endl;
         }
         /*
         if (current_player->has_card(2) != -1){
