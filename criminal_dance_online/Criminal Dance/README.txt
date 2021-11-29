@@ -92,6 +92,7 @@ In this C++ Console Text version program every player holding card are shown as 
 So every status of each player are shown at each turn. 
 Even when player are drawing card, it still show the actual card of the player. Which is just for C++ Console Text version program.
 or Even guessing which player is holding the Culprit card.
+Also, Player type will not change each turn to who holding the CULPRIT card since the identiy is changing. Player type will only be changed when using card that will change identity permanently, ie, [CULPRIT, ACCOMPLICE] and when CULPRIT get catched.
 ********************************************
 How to use the program:
   step 1: First enter the number of players of the match.
