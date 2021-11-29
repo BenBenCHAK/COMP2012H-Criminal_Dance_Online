@@ -67,7 +67,7 @@ Card function:
   BYSTANDER:      This card do no actions when used.
   
   BASTET:         Choose a player who need to discard a card from his/her hand. If the discarded card is CULPRIT, Civilian wins and Criminals loses. 
-                  Otherwise, the target player receive this card to his/her hand.
+                  Otherwise, the targeted player receive this card to his/her hand.
   
   INFO_EXCHANGE:  Starting from the player who use this card, choose a card in hand and pass to left side player and repect this process clockwise direction one by one. 
                   The Player can see the recived card but cannot pass the recived card again to the next player. 
@@ -79,7 +79,7 @@ Card function:
                   then skip the left side playe. 
                   
   BARTER:         Player who use this card can choose a player who have card in hand to exchange a card in hand. 
-                  If the player does not have any card in hand, he/she will take the card from the target player instead of exchanging. 
+                  If the player does not have any card in hand, he/she will take the card from the targeted player instead of exchanging. 
                   
   JUVENILE:       At the begining of the match, player who have this card can know which player is holding the CULPRIT card at first. This card do no actions when used.
   
@@ -164,7 +164,7 @@ Crad selection:
         Choose a player to target: 
       1. c
       2. a
-   player b need to enter 1 to target player c / 2 to target player a.
+   player b need to enter 1 to target player c or 2 to target player a.
    
    
  End of the game:
