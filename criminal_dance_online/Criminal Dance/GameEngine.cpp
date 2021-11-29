@@ -166,7 +166,7 @@ int GameEngine::get_number_of_players() const{
 void GameEngine::print_all_players(){
     Player* temp = current_player;
     for(int i = 0; i<number_of_players;++i){
-        cout << temp->get_name() << ", " << temp->get_type() << endl;
+        cout << temp->get_name() << ": " << temp->get_type() << endl;
         temp = temp->next_player;
     }
 }
@@ -179,7 +179,7 @@ void GameEngine::print_all_player_status(){
     Player* temp = current_player;
     cout << endl;
     for(int i = 0; i<number_of_players;++i){
-        cout << "  | " << temp->get_name() << ", " << temp->get_type() << endl;
+        cout << "  | " << temp->get_name() << ": " << temp->get_type() << endl;
         cout << "  | " << temp->get_hand() <<  endl;
         temp = temp->next_player;
     }
