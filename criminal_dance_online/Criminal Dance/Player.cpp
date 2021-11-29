@@ -65,7 +65,7 @@ int Player::exchange_select_card(){
         cin >> selected_card;
         selected_card--;
         if(hand[selected_card]->can_use() == false){
-            cout << "This card cannot be passed." << endl;
+            cout << "This card cannot be passed again." << endl;
         }
     }while(hand[selected_card]->can_use() == false);
     return selected_card;
