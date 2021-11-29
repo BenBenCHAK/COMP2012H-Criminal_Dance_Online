@@ -244,6 +244,8 @@ void Player::use_card(int index){
             // CULPRIT abandon the CULPRIT card
             if(abandon_card_index == target->has_card(2)){
                 target->set_type(Player::Type::CULPRIT);
+                delete target->hand[abandon_card_index];
+                target->hand.erase(target->hand.begin()+abandon_card_index);
                 cout << "The BASTET made the CULPRIT abandon the CULPRIT card." << endl;
                 cout << "CIVILIAN wins" << endl;
                 game_over = true;
