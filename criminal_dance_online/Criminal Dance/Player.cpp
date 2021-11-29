@@ -191,7 +191,7 @@ const bool Player::can_select_card(const int& index) const{
     return true;
 }
 
-void Player::use_card(int index){
+void Player::use_card(const int& index){
     Player* target;
     Card* removing_card = hand[index];
     int card_type = static_cast<int>(removing_card->get_type());
@@ -210,7 +210,7 @@ void Player::use_card(int index){
             set_type(Player::Type::CULPRIT);
             game_over = true;
             cout << "The CULPRIT used his/her last card" << endl;
-            cout << "CULPRIT and ACCOMPLICE wins" << endl;
+            cout << "CULPRIT and ACCOMPLICE wins" << endl << endl;
             Player* temp = this;
             do{
                 if(temp->type != Player::Type::CIVILIAN){
@@ -236,7 +236,7 @@ void Player::use_card(int index){
             else {
                 target->set_type(Player::Type::CULPRIT);
                 cout << "The DETECTIVE found the CULPRIT." << endl;
-                cout << "CIVILIAN wins" << endl;
+                cout << "CIVILIAN wins" << endl << endl;
                 Player* temp = this;
                 game_over = true;
                 do{
@@ -278,7 +278,7 @@ void Player::use_card(int index){
                 delete target->hand[abandon_card_index];
                 target->hand.erase(target->hand.begin()+abandon_card_index);
                 cout << "The BASTET made the CULPRIT abandon the CULPRIT card." << endl;
-                cout << "CIVILIAN wins" << endl;
+                cout << "CIVILIAN wins" << endl << endl;
                 game_over = true;
                 Player* temp = this;
                 do{
