@@ -26,7 +26,7 @@ void Player::reset(){
     first_player = false;
 }
 
-bool Player::is_first_player(){
+const bool Player::is_first_player(){
     if (has_card(1) == -1){
         first_player = false;
     } else {
@@ -42,15 +42,15 @@ void Player::init_hand(vector<int> card_list){
 }
 
 
-string Player::get_name() const{
+const string Player::get_name() const{
     return name;
 }
 
-bool Player::is_player1() const{
+const bool Player::is_player1() const{
     return first_player;
 }
 
-string Player::get_hand() const{
+const string Player::get_hand() const{
     string card_list = "[ ";
     
     for (int i = 0; i<hand.size(); i++){
@@ -110,7 +110,7 @@ string Player::get_hand() const{
     return card_list;
 }
 
-string Player::get_type() const{
+const string Player::get_type() const{
     switch(type){
         case Player::Type::CIVILIAN:
             return "Civilian";
@@ -130,7 +130,7 @@ void Player::set_type(const Player::Type& type){
     this->type = type;
 }
 
-int Player::has_card(const int& type)const{
+const int Player::has_card(const int& type) const{
     for (int i = 0; i < hand.size(); i++){
         if (hand[i]->get_type() == static_cast<Card::Type>(type)){
             return i;
@@ -140,7 +140,7 @@ int Player::has_card(const int& type)const{
 }
 
 
-int Player::select_card() const{
+const int Player::select_card() const{
     if(hand.size() == 0)
         return -1;
     int selected_card;
@@ -161,7 +161,7 @@ int Player::select_card() const{
 }
 
 // only for use card select but not the passing/exchanging/drawing/abandoning
-bool Player::can_select_card(const int& index) const{
+const bool Player::can_select_card(const int& index) const{
     if (index>=hand.size()||index<0){
         return false;
     }
@@ -410,7 +410,7 @@ Player* Player::select_target(){
     return target;
 }
 
-int Player::exchange_select_card()const{
+const int Player::exchange_select_card()const{
     if(hand.size() == 0)
         return -1;
     if(hand.size() == 1 && hand[0]->can_use() == false)
@@ -428,7 +428,7 @@ int Player::exchange_select_card()const{
     return selected_card;
 }
 
-int Player::draw_select_card()const{
+const int Player::draw_select_card()const{
     if(prev_player->hand.size() == 0)
         return -1;
     if(prev_player->hand.size() == 1 && prev_player->hand[0]->can_use() == false)
