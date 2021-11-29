@@ -15,6 +15,6 @@ Card::Type Card::get_type() const{
     return type;
 }
 
-bool Card::can_use() const{
+bool Card::can_select() const{
     return selectable;
 }
