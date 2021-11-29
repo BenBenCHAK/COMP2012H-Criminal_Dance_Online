@@ -180,6 +180,7 @@ void GameEngine::print_current_player(){
 
 void GameEngine::print_all_player_status(){
     Player* temp = current_player;
+    cout << endl;
     for(int i = 0; i<number_of_players;++i){
         cout << "  | " << temp->get_name() << ", " << temp->get_type() << endl;
         cout << "  | " << temp->get_hand() <<  endl;
