@@ -1,7 +1,7 @@
 /***********************************
 /* This class is the actual card of this game, there are 12 different type of cards in this game
 /* So there are only two date members in this class, ie. const Type type represents which card type is this card from the 12 different type 
-/*                                                       and bool useable represents whether this card can be exchanged/passed/drawn or not.
+/*                                                       and bool selectable represents whether this card can be exchanged/passed/drawn or not.
 /* Also, card itself will not have any operation in the game, it is just an indactor what the player wants to do, so this class only have accessors and mutator.
 /***********************************/
 #ifndef CARD_H
@@ -38,12 +38,12 @@ class Card {
         bool can_use() const;
         
         // mutator
-        void set_useable(bool k);
+        void set_selectable(bool k);
     private:
         // type of this card ( never changes the type once this card is constructed)
         const Type type;
         // whether this card can be exchanged/passed/drawn or not
-        bool useable;
+        bool selectable;
 };
 
 #endif
