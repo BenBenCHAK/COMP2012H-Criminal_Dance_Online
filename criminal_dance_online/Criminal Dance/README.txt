@@ -171,18 +171,26 @@ Crad selection:
   
     1) DETECTIVE sucessfully find the CULPRIT card           - Civilians wins & Criminals loses 
         
+            c: Please select a card to use.
+            Card List: [ INFO_EXCHANGE  DETECTIVE  DETECTIVE  ]
+            2
+            Choose a player to target: 
+            1. a
+            2. b
+            2
+
             The DETECTIVE found the CULPRIT.
             CIVILIAN wins
-            c lose
+            c wins
             a wins
             b lose
 
               | a: Civilian
-              | [ INFO_EXCHANGE  BASTET  ]
+              | [ BASTET  ALIBI  ]
               | b: Culprit
-              | [ INFO_EXCHANGE  CULPRIT  ]
-              | c: Accomplice
-              | [ BYSTANDER  DETECTIVE  ]
+              | [ RUMOR  CULPRIT  ]
+              | c: Civilian
+              | [ INFO_EXCHANGE  DETECTIVE  ]
             Game Over
 
     2) CULPRIT used as the last card                         - Civilians loses & Criminals wins 
