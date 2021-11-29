@@ -121,12 +121,12 @@ void GameEngine::find_first_player(){
 }
 
 void GameEngine::run(){
-    round = 0;
+    // Check whether there are player holding the JUVENILE card, if yes, let him/her knows which player is holding the CULPRIT card at the beginning
     Player* temp = current_player;
     for(int i = 0; i < number_of_players; ++i, temp = temp->next_player){
         if(temp->has_card(12) != -1){
+            cout << "There are player holding JUVENILE card (He/She will know which player is holding the CULPRIT card at the beginning)." << endl;
             cout << temp->get_name() << " knows ";
-
             Player* temp2 = current_player;
             for(int i = 0; i < number_of_players; ++i, temp2 = temp2->next_player){
                 if(temp2->has_card(2) != -1){
@@ -135,6 +135,8 @@ void GameEngine::run(){
             }
         }
     }
+    
+    round = 0;
     while(!game_over){
         print_all_player_status();
         cout << endl;
@@ -142,11 +144,6 @@ void GameEngine::run(){
             round++;
             cout << endl << " ================ ROUND " << round << " ================"<< endl << endl;
         }
-        /*
-        if (current_player->has_card(2) != -1){
-            current_player->set_type(Player::Type::CULPRIT);
-        }
-        */
         cout << current_player->get_name() << ": ";
         int selected_card = current_player->select_card();
         if(selected_card == -1){
