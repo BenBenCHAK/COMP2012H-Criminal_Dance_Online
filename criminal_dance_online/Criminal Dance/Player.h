@@ -56,7 +56,7 @@ public:
     
     // Return the index of which card the player want to use of vector hand. Return -1 if the player does not have any cards in hand.
     const int select_card() const;
-    // Return whether the card can be used according to the card use limitation.
+    // Return whether the card can be used according to the card usage limitation.
     const bool can_select_card(const int& index) const;
     // Input the card position in vector hand and use the card, ie. do operation according to the card type.
     void use_card(const int& index);
