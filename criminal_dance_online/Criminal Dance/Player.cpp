@@ -498,7 +498,7 @@ const int Player::exchange_select_card()const{
         return -1;
     
     int selected_card;
-    cout << get_name() << ": Please select a card to pass to " << next_player->get_name() << " /exchange/discard." << endl;
+    cout << get_name() << ": Please select a card to pass to " << next_player->get_name() << " / exchange / discard." << endl;
     cout << "Card List: " << get_hand() << endl;
     
     do{
