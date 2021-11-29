@@ -83,7 +83,7 @@ int Player::draw_select_card(){
         cin >> draw_selected_card;
         draw_selected_card--;
         if(prev_player->hand[draw_selected_card]->can_use() == false){
-            cout << "This card cannot be drawn again." << endl;
+            cout << "This card cannot be drawn again." << endl << endl;
         }
     }while(prev_player->hand[draw_selected_card]->can_use() == false);
     return draw_selected_card; 
@@ -99,7 +99,7 @@ int Player::select_card(){
     selected_card--;
 
     while (!can_select_card(selected_card)){
-        cout << "Cannot select this card. Please select another." << endl << endl;
+        cout << endl << "Cannot select this card. Please select another." << endl << endl;
         cout << "Please select a card to use." << endl;
         cout << "Card List: " << get_hand() << endl;
         cin >> selected_card;
@@ -130,6 +130,7 @@ Player* Player::select_target(){
             break;
         cout << "You can't choose players with no cards." << endl << endl;
     }
+    cout << endl;
     return target;
 }
 
@@ -227,8 +228,9 @@ void Player::use_card(int index){
 
         case 6:
             target = select_target();
+            cout << endl;
             cout << target->get_name() << "'s hands: ";
-            cout << target->get_hand() << endl;
+            cout << target->get_hand() << endl << endl;
             break;
 
         case 7:
@@ -269,8 +271,10 @@ void Player::use_card(int index){
             reset_useable_cards();
             Player* current = this;
             do{
+                cout << endl;
                 int passing_card_index = current->exchange_select_card();
                 if(passing_card_index == -1){
+                    cout << endl;
                     cout << "You ( " << current->get_name() << " ) don't have any passable cards." << endl;
                     current = current->next_player;
                     continue;
@@ -290,8 +294,10 @@ void Player::use_card(int index){
             reset_useable_cards();
             Player* current = this;
             do{
+                cout << endl;
                 int draw_card_index = current->draw_select_card();
                 if(draw_card_index == -1){
+                    cout << endl;
                     cout << current->prev_player->get_name() << " doesn't have any passable cards to let you ( " << current->get_name() << " ) draw." << endl;
                     current = current->next_player;
                     continue;
@@ -309,7 +315,9 @@ void Player::use_card(int index){
             reset_useable_cards();
             Player* current = this;
             target = select_target();
+            cout << endl;
             int current_give_card_index = current->exchange_select_card();
+            cout << endl;
             int target_give_card_index = target->exchange_select_card();
 
             if(current_give_card_index == -1){ // take card from target only
