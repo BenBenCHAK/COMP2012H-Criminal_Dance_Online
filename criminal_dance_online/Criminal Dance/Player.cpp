@@ -51,56 +51,56 @@ const bool Player::is_player1() const{
 }
 
 const string Player::get_hand() const{
-    string card_list = "[ ";
+    string card_list = "[  ";
     
     for (int i = 0; i<hand.size(); i++){
         switch(static_cast<int>(hand[i]->get_type())){
             case 1:{
-                card_list += "FIRST_FINDER ";
+                card_list += "FIRST_FINDER  ";
                 break;
             }
             case 2:{
-                card_list += "CULPRIT ";
+                card_list += "CULPRIT  ";
                 break;
             }
             case 3:{
-                card_list += "DETECTIVE ";
+                card_list += "DETECTIVE  ";
                 break;
             }
             case 4:{
-                card_list += "ALIBI ";
+                card_list += "ALIBI  ";
                 break;
             }
             case 5:{
-                card_list += "ACCOMPLICE ";
+                card_list += "ACCOMPLICE  ";
                 break;
             }
             case 6:{
-                card_list += "WITNESS ";
+                card_list += "WITNESS  ";
                 break;
             }
             case 7:{
-                card_list += "BYSTANDER ";
+                card_list += "BYSTANDER  ";
                 break;
             }
             case 8:{
-                card_list += "BASTET ";
+                card_list += "BASTET  ";
                 break;
             }
             case 9:{
-                card_list += "INFO_EXCHANGE ";
+                card_list += "INFO_EXCHANGE  ";
                 break;
             }
             case 10:{
-                card_list += "RUMOR ";
+                card_list += "RUMOR  ";
                 break;
             }
             case 11:{
-                card_list += "BARTER ";
+                card_list += "BARTER  ";
                 break;
             }
             case 12:{
-                card_list += "JUVENILE ";
+                card_list += "JUVENILE  ";
                 break;
             }
         }
@@ -498,7 +498,7 @@ const int Player::exchange_select_card()const{
         return -1;
     
     int selected_card;
-    cout << get_name() << ": Please select a card to pass/exchange/discard." << endl;
+    cout << get_name() << ": Please select a card to pass to " << next_player->get_name() << " /exchange/discard." << endl;
     cout << "Card List: " << get_hand() << endl;
     
     do{
