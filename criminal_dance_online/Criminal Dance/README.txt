@@ -117,7 +117,9 @@ Crad selection:
    player b need to enter 1 to target player c / 2 to target player a.
    
  End of the game:
+  When a game is finished each player will be printed with the result and the player type and current holding cards.
   There are 3 ways to finish a game and the result will be printed as follow:
+  
     1) DETECTIVE sucessfully find the CULPRIT card           - Civilians wins & Criminals loses 
         
             The DETECTIVE found the CULPRIT.
@@ -126,16 +128,67 @@ Crad selection:
             a wins
             b lose
 
-              | a, Civilian
+              | a: Civilian
               | [ INFO_EXCHANGE  BASTET  ]
-              | b, Culprit
+              | b: Culprit
               | [ INFO_EXCHANGE  CULPRIT  ]
-              | c, Accomplice
+              | c: Accomplice
               | [ BYSTANDER  DETECTIVE  ]
             Game Over
 
     2) CULPRIT used as the last card                         - Civilians loses & Criminals wins 
     
+            c: Please select a card to use.
+            Card List: [ CULPRIT  ]
+            1
+            The CULPRIT used his/her last card
+            CULPRIT and ACCOMPLICE wins
+            c wins
+            a lose
+            b lose
+
+              | a: Civilian
+              | [ INFO_EXCHANGE  ]
+              | b: Civilian
+              | [ INFO_EXCHANGE  ]
+              | c: Culprit
+              | [ ]
+            Game Over
+    
     3) BASTET force targeted player discard the CULPRIT card - Civilians wins & Criminals loses 
     
-   
+How many players? (3-8)
+3
+What is your name?
+a
+What is your name?
+b
+What is your name?
+c
+
+
+  | c, Civilian
+  | [ CULPRIT  FIRST_FINDER  ALIBI  DETECTIVE  ]
+  | a, Civilian
+  | [ JUVENILE  INFO_EXCHANGE  WITNESS  DETECTIVE  ]
+  | b, Civilian
+  | [ INFO_EXCHANGE  ALIBI  ALIBI  BYSTANDER  ]
+
+ ================ Match created ================
+
+There are player holding JUVENILE card (He/She will know which player is holding the CULPRIT card at the beginning).
+a knows c is holding the CULPRIT card.
+
+
+  | c, Civilian
+  | [ CULPRIT  FIRST_FINDER  ALIBI  DETECTIVE  ]
+  | a, Civilian
+  | [ JUVENILE  INFO_EXCHANGE  WITNESS  DETECTIVE  ]
+  | b, Civilian
+  | [ INFO_EXCHANGE  ALIBI  ALIBI  BYSTANDER  ]
+
+
+ ================ ROUND 1 ================
+
+c: Please select a card to use.
+Card List: [ CULPRIT  FIRST_FINDER  ALIBI  DETECTIVE  ]
