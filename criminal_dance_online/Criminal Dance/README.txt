@@ -83,6 +83,13 @@ Card function:
 =================================================================================================================================================================================
 C++ Console Text version program
 ********************************************
+  Important Notes
+********************************************
+In this C++ Console Text version program every player holding card are shown as it is the only way to conduct a multiplayer board game in a sereen.
+So every status of each player are shown at each turn. 
+Even when player are drawing card, it still show the actual card of the player. Which is just for C++ Console Text version program.
+or Even guessing which player is holding the Culprit card.
+********************************************
 How to use the program:
   step 1: First enter the number of players of the match.
   step 2: Then enter the name one by one.
@@ -98,6 +105,44 @@ Player creating order:
   a's next player is b; b's next player is c; c's next player is a
   a left hand side is b; b left hand side is c; c left hand side is a
   The game goes in circular clockwise direction, ie. a->b->c->a/ b->c->a->b / c->a->b->c.
+  
+  Here is an actual creating the match:
+      How many players? (3-8)
+      3
+      What is your name?
+      a
+      What is your name?
+      b
+      What is your name?
+      c
+
+
+        | c: Civilian
+        | [ CULPRIT  FIRST_FINDER  ALIBI  DETECTIVE  ]
+        | a: Civilian
+        | [ JUVENILE  INFO_EXCHANGE  WITNESS  DETECTIVE  ]
+        | b: Civilian
+        | [ INFO_EXCHANGE  ALIBI  ALIBI  BYSTANDER  ]
+
+       ================ Match created ================
+
+      There are player holding JUVENILE card (He/She will know which player is holding the CULPRIT card at the beginning).
+      a knows c is holding the CULPRIT card.
+
+
+        | c: Civilian
+        | [ CULPRIT  FIRST_FINDER  ALIBI  DETECTIVE  ]
+        | a: Civilian
+        | [ JUVENILE  INFO_EXCHANGE  WITNESS  DETECTIVE  ]
+        | b: Civilian
+        | [ INFO_EXCHANGE  ALIBI  ALIBI  BYSTANDER  ]
+
+
+       ================ ROUND 1 ================
+
+      c: Please select a card to use.
+      Card List: [ CULPRIT  FIRST_FINDER  ALIBI  DETECTIVE  ]
+
 
 Crad selection:
   Select card by entering integer in [ 1 , num of card]
@@ -107,6 +152,7 @@ Crad selection:
       Card List: [ RUMOR  DETECTIVE  FIRST_FINDER  INFO_EXCHANGE  ]
   Player a need to select a card by entering integer 1/2/3/4.
   
+  
  Target selection:
   Select target player by entering the provided corresponding integer number of the player.
   
@@ -115,6 +161,7 @@ Crad selection:
       1. c
       2. a
    player b need to enter 1 to target player c / 2 to target player a.
+   
    
  End of the game:
   When a game is finished each player will be printed with the result and the player type and current holding cards.
@@ -157,38 +204,28 @@ Crad selection:
     
     3) BASTET force targeted player discard the CULPRIT card - Civilians wins & Criminals loses 
     
-How many players? (3-8)
-3
-What is your name?
-a
-What is your name?
-b
-What is your name?
-c
+            b: Please select a card to use.
+            Card List: [ WITNESS  DETECTIVE  ALIBI  BASTET  ]
+            4
+            Choose a player to target: 
+            1. c
+            2. a
+            2
 
+            a: Please select a card to pass/exchange/abandon.
+            Card List: [ RUMOR  ACCOMPLICE  CULPRIT  ]
+            3
+            The BASTET made the CULPRIT abandon the CULPRIT card.
+            CIVILIAN wins
+            b wins
+            c wins
+            a lose
 
-  | c, Civilian
-  | [ CULPRIT  FIRST_FINDER  ALIBI  DETECTIVE  ]
-  | a, Civilian
-  | [ JUVENILE  INFO_EXCHANGE  WITNESS  DETECTIVE  ]
-  | b, Civilian
-  | [ INFO_EXCHANGE  ALIBI  ALIBI  BYSTANDER  ]
-
- ================ Match created ================
-
-There are player holding JUVENILE card (He/She will know which player is holding the CULPRIT card at the beginning).
-a knows c is holding the CULPRIT card.
-
-
-  | c, Civilian
-  | [ CULPRIT  FIRST_FINDER  ALIBI  DETECTIVE  ]
-  | a, Civilian
-  | [ JUVENILE  INFO_EXCHANGE  WITNESS  DETECTIVE  ]
-  | b, Civilian
-  | [ INFO_EXCHANGE  ALIBI  ALIBI  BYSTANDER  ]
-
-
- ================ ROUND 1 ================
-
-c: Please select a card to use.
-Card List: [ CULPRIT  FIRST_FINDER  ALIBI  DETECTIVE  ]
+              | c: Civilian
+              | [ BYSTANDER  ALIBI  WITNESS  ]
+              | a: Culprit
+              | [ RUMOR  ACCOMPLICE  ]
+              | b: Civilian
+              | [ WITNESS  DETECTIVE  ALIBI  BASTET  ]
+            Game Over
+  
