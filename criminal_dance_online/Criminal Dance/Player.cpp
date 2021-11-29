@@ -135,15 +135,15 @@ Player* Player::select_target(){
 }
 
 void Player::add_card(Card* card){
-    card->set_useable(false);
+    card->set_selectable(false);
     hand.push_back(card);
 }
 
-void Player::reset_useable_cards(){
+void Player::reset_AllCards_selectable(){
     Player* temp = this;
     do{
         for(int i = 0; i < temp->hand.size(); ++i){
-            temp->hand[i]->set_useable(true);
+            temp->hand[i]->set_selectable(true);
         }
         temp = temp->next_player;
     }while (temp != this);
@@ -238,7 +238,7 @@ void Player::use_card(int index){
             break;
 
         case 8:{
-            reset_useable_cards();
+            reset_AllCards_selectable();
             target = select_target();
             int abandon_card_index = target->exchange_select_card();
             // CULPRIT abandon the CULPRIT card
@@ -267,11 +267,11 @@ void Player::use_card(int index){
             target->add_card(removing_card);
             hand.erase(hand.begin()+index);
 
-            reset_useable_cards();
+            reset_AllCards_selectable();
             break;
         }
         case 9: {// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> all players will join passing card even they have no cards in hand
-            reset_useable_cards();
+            reset_AllCards_selectable();
             Player* current = this;
             do{
                 cout << endl;
@@ -290,11 +290,11 @@ void Player::use_card(int index){
                 current = current->next_player;
             }while (current != this);
 
-            reset_useable_cards();
+            reset_AllCards_selectable();
             break;
         }
         case 10:{// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> all players will join drawing card even they have no cards in hand
-            reset_useable_cards();
+            reset_AllCards_selectable();
             Player* current = this;
             do{
                 cout << endl;
@@ -311,11 +311,11 @@ void Player::use_card(int index){
                 current = current->next_player;
             }while (current != this);
 
-            reset_useable_cards();
+            reset_AllCards_selectable();
             break;
         }
         case 11:{// >>>>>>>>if user dont have card in hand, this user take a card from other player instead of exchange the cards
-            reset_useable_cards();
+            reset_AllCards_selectable();
             Player* current = this;
             target = select_target();
             cout << endl;
@@ -335,7 +335,7 @@ void Player::use_card(int index){
                 target->hand.erase(target->hand.begin()+target_give_card_index);
             }
 
-            reset_useable_cards();
+            reset_AllCards_selectable();
             break;
         }  
         case 12:
