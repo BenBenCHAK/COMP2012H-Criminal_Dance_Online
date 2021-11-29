@@ -16,18 +16,7 @@ using namespace std;
 
 extern bool game_over;
 
-class Player {
-private:
-    // Name of a player
-    string name;
-    // Whether a player is the first player, ie. who distrubuted the FIRST_FINDER card.
-    // This cannot make to const bool because we first create Player then distrubute the card. We don't know whether a player is the first one or not when creating a player.
-    bool first_player;
-    // This represent the card holding by the player (pointer to card).
-    vector<Card*> hand;
-    // Represent 3 different type of the player
-    Type type;
-    
+class Player {  
 public:
     // 3 different player type in this game 
     enum class Type {
@@ -90,6 +79,18 @@ public:
     
     // After passing/drawing/exchanging cards for a round, need to reset all card to selectable.
     void reset_AllCards_selectable();
+    
+private:
+    // Name of a player
+    string name;
+    // Whether a player is the first player, ie. who distrubuted the FIRST_FINDER card.
+    // This cannot make to const bool because we first create Player then distrubute the card. We don't know whether a player is the first one or not when creating a player.
+    bool first_player;
+    // This represent the card holding by the player (pointer to card).
+    vector<Card*> hand;
+    // Represent 3 different type of the player
+    Type type;
+  
 };
 
 #endif //GAMEENGINE_H
