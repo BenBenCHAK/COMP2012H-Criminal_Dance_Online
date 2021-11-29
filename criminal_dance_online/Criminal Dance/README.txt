@@ -80,21 +80,24 @@ Card function:
                   
   JUVENILE:       At the begining of the match, player who have this card can know which player is holding the CULPRIT card at first. This card do no actions when used.
   
-========================================================================================================================================================================
-
-C++ Console Text version
+=================================================================================================================================================================================
+C++ Console Text version program
 ********************************************
-How to use the program
-Creating Players list
-adding each next player means that the player added is sitting at previous player left hand side in the real world
-Example:
-3
-a
-b
-c
+How to use the program:
+  step 1: First enter the number of players of the match.
+  step 2: Then enter the name one by one.
+  step 3: Player can play the game by enter their choose. And the game goes on.
+  
+Player creating order:
+  For example in the player naming section:
+  a
+  b
+  c
+  is entered.
+  
+  a's next player is b; b's next player is c; c's next player is a
+  a left hand side is b; b left hand side is c; c left hand side is a
+  The game goes in circular clockwise direction, ie. a->b->c->a/ b->c->a->b / c->a->b->c.
 
-a's next player is b; b's next player is c; c's next player is a
-a left hand side is b; b left hand side is c; c left hand side is a
-
-
-using card by entering int [ 1 , num of card]
+Crad selection:
+using card by entering integer in [ 1 , num of card]
