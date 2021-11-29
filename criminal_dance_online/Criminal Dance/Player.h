@@ -36,7 +36,6 @@ public:
     
     // These function is used when initalizing the game
     void add_new_player(const string& name);
-    void reset();
     const bool is_first_player();
     void init_hand(vector<int> card_list);
     
@@ -48,8 +47,9 @@ public:
     // Return a pointer pointing to the card which hand[index] is pointing at.
     Card* get_card(const int& index) const;
     
-    // Mutator
+    // Mutators
     void set_type(const Type& type);
+    void reset();
     
     // Check whether the player has the input type of card, if yes, return the position in vector hand, otherwise return -1.
     const int has_card(const int& type) const;
