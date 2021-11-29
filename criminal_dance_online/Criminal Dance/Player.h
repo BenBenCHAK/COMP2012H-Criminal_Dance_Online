@@ -37,14 +37,14 @@ public:
     // These function is used when initalizing the game
     void add_new_player(const string& name);
     void reset();
-    bool is_first_player();
+    const bool is_first_player();
     void init_hand(vector<int> card_list);
     
     // Accessors
-    string get_name() const;
-    bool is_player1() const;
-    string get_hand() const;
-    string get_type() const;
+    const string get_name() const;
+    const bool is_player1() const;
+    const string get_hand() const;
+    const string get_type() const;
     // Return a pointer pointing to the card which hand[index] is pointing at.
     Card* get_card(const int& index) const;
     
@@ -52,14 +52,14 @@ public:
     void set_type(const Type& type);
     
     // Check whether the player has the input type of card, if yes, return the position in vector hand, otherwise return -1.
-    int has_card(const int& type) const;
+    const int has_card(const int& type) const;
     
     // Return the index of which card the player want to use of vector hand. Return -1 if the player does not have any cards in hand.
-    int select_card() const;
+    const int select_card() const;
     // Return whether the card can be used according to the card use limitation.
-    bool can_select_card(const int& index) const;
+    const bool can_select_card(const int& index) const;
     // Input the card position in vector hand and use the card, ie. do operation according to the card type.
-    void use_card(int index);
+    void use_card(const int& index);
     
     // Print Messages
     void print_select_target_list(int& player_index);
@@ -68,11 +68,11 @@ public:
     
     // For using INFO_EXCHANGE card type to select the pass card. Return the index of which card this wants to pass to the next player.
     // Return -1 if this player does not have any passable cards.
-    int exchange_select_card() const;
+    const int exchange_select_card() const;
     
     // For using RUMOR card type to select the draw card. Return the index of which card this player wants to draw from the previous player vector hand. 
     // Return -1 if previous player does not have any drawable cards.
-    int draw_select_card() const;
+    const int draw_select_card() const;
     
     // Input a point to card. Add this card to this player vector hand, that card cannot be passed/drawn again in this round.
     void add_card(Card* const card);
