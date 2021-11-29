@@ -28,17 +28,19 @@ class Card {
             BARTER = 11, 
             JUVENILE = 12
         };
+    
         // constructor that the paremeter is the card type
-        Card(int type);
+        Card(const int& type);
         // using default destructor since no new date member in Card type
         ~Card() = default;
         
         // accessors
-        Card::Type get_type() const;
-        bool can_select() const;
+        const Card::Type get_type() const;
+        const bool can_select() const;
         
         // mutator
         void set_selectable(bool k);
+    
     private:
         // type of this card ( never changes the type once this card is constructed)
         const Type type;
