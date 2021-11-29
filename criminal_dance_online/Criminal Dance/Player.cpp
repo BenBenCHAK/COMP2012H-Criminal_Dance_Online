@@ -2,7 +2,7 @@
 
 bool game_over = false;
 
-Player::Player(string name) : name(name), type(Player::Type::CIVILIAN), first_player(true), prev_player(this), next_player(this) {}
+Player::Player(const string& name) : name(name), type(Player::Type::CIVILIAN), first_player(true), prev_player(this), next_player(this) {}
 
 Player::~Player(){
     for(;hand.empty() == false;){
@@ -12,7 +12,7 @@ Player::~Player(){
 }
 
 
-void Player::add_new_player(string name){
+void Player::add_new_player(const string& name){
     Player* new_player = new Player(name);
     new_player->first_player = false;
     new_player->prev_player = prev_player;
