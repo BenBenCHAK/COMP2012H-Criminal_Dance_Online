@@ -228,7 +228,7 @@ Crad selection:
             a: Please select a card to pass/exchange/abandon.
             Card List: [ RUMOR  ACCOMPLICE  CULPRIT  ]
             3
-            The BASTET made the CULPRIT abandon the CULPRIT card.
+            The BASTET made the targeted player discard the CULPRIT card.
             CIVILIAN wins
             b wins
             c wins
