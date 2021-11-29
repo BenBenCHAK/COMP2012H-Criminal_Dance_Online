@@ -50,27 +50,34 @@ public:
     void add_card(Card* card);
 
     void use_card(int index);
+    // after
     void reset_useable_cards();
 
     // Print Messages
     void print_select_target_list(int& player_index);
 
     // Mutator
-    void set_type(Type type);
+    void set_type(const Type& type);
 
-    // accessors
+    // Accessors
     string get_name() const;
     string get_hand() const;
-    Card* get_card(int index) const;
     string get_type() const;
+    // return a pointer pointing to the card which hand[index] is pointing at
+    Card* get_card(const int& index) const;
 
 
 
 private:
-    vector<Card*> hand;
+    // Name of a player
     string name;
-    Type type;
+    // Whether a player is the first player, ie. who distrubuted the FIRST_FINDER card.
+    // This cannot make to const bool because we first create Player then distrubute the card. We don't know whether a player is the first one or not when creating a player.
     bool first_player;
+    // This represent the card holding by the player (pointer to card).
+    vector<Card*> hand;
+    // Represent 3 different type of the player
+    Type type;
 
 };
 
