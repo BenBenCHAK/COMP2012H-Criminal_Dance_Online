@@ -51,7 +51,7 @@ public:
 
     void use_card(int index);
     // after
-    void reset_useable_cards();
+    void reset_AllCards_selectable();
 
     // Print Messages
     void print_select_target_list(int& player_index);
