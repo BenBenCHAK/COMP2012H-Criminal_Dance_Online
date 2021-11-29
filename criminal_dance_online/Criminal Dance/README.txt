@@ -90,9 +90,9 @@ How to use the program:
   
 Player creating order:
   For example in the player naming section:
-  a
-  b
-  c
+      a
+      b
+      c
   is entered.
   
   a's next player is b; b's next player is c; c's next player is a
@@ -100,4 +100,42 @@ Player creating order:
   The game goes in circular clockwise direction, ie. a->b->c->a/ b->c->a->b / c->a->b->c.
 
 Crad selection:
-using card by entering integer in [ 1 , num of card]
+  Select card by entering integer in [ 1 , num of card]
+  
+  Example:
+      a: Please select a card to use.
+      Card List: [ RUMOR  DETECTIVE  FIRST_FINDER  INFO_EXCHANGE  ]
+  Player a need to select a card by entering integer 1/2/3/4.
+  
+ Target selection:
+  Select target player by entering the provided corresponding integer number of the player.
+  
+  Example:
+        Choose a player to target: 
+      1. c
+      2. a
+   player b need to enter 1 to target player c / 2 to target player a.
+   
+ End of the game:
+  There are 3 ways to finish a game:
+    1) DETECTIVE sucessfully find the CULPRIT card           - Civilians wins & Criminals loses 
+        The following will be printed:
+            The DETECTIVE found the CULPRIT.
+            CIVILIAN wins
+            c lose
+            a wins
+            b lose
+
+              | a, Civilian
+              | [ INFO_EXCHANGE  BASTET  ]
+              | b, Culprit
+              | [ INFO_EXCHANGE  CULPRIT  ]
+              | c, Accomplice
+              | [ BYSTANDER  DETECTIVE  ]
+            Game Over
+
+    2) CULPRIT used as the last card                         - Civilians loses & Criminals wins 
+    
+    3) BASTET force targeted player discard the CULPRIT card - Civilians wins & Criminals loses 
+    
+   
