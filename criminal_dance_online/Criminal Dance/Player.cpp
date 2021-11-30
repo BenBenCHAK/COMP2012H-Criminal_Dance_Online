@@ -481,7 +481,7 @@ Player* Player::select_target(){
             break;
         cout << "You can't choose players with no cards." << endl;
     }
-    
+
     cout << endl;
     return target;
 }
@@ -510,7 +510,7 @@ const int Player::exchange_select_card()const{
         }
         
     }while(hand[selected_card]->can_select() == false);
-    
+
     return selected_card;
 }
 
