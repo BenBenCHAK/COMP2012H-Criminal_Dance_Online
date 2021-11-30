@@ -50,7 +50,7 @@ Game faction:
   Civilians (other players)
   
 Card function:
-  FIRST_FINDER:   This card indicat who is the first player to start the match. This player must use this card and no actions are done.
+  FIRST_FINDER:   This card indicate who is the first player to start the match. This player must use this card and no actions are done.
   
   CULPRIT:        This card can be used only if it is the last card left in hand. Once it is used, Criminals wins and Civilian loses.
   
