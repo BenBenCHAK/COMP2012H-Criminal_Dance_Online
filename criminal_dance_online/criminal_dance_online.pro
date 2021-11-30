@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,13 +10,34 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    render/render.cpp \
+    render/visualcard.cpp \
+    render/visualplayer.cpp \
+    server/gameclient.cpp \
+    server/gameserver.cpp \
+    server/gameserverinterface.cpp \
+    game/Card.cpp \
+    game/GameEngine.cpp \
+    game/Player.cpp \
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    render/render.h \
+    render/visualcard.h \
+    render/visualplayer.h \
+    server/gameclient.h \
+    server/gameserver.h \
+    server/gameserverinterface.h \
+    game/Card.h \
+    game/GameEngine.h \
+    game/Player.h \
 
 FORMS += \
     mainwindow.ui
+
+RESOURCES += \
+    Res.qrc
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

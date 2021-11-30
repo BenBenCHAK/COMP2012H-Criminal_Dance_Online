@@ -13,20 +13,15 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-void MainWindow::on_button_exit_clicked()
+void MainWindow::on_btn_back_in_desc_clicked() {ui->stackedwidget->setCurrentIndex(0);}
+void MainWindow::on_btn_join_clicked() {ui->stackedwidget->setCurrentIndex(2);}
+void MainWindow::on_btn_host_clicked() {ui->stackedwidget->setCurrentIndex(3);}
+void MainWindow::on_btn_desc_clicked() {ui->stackedwidget->setCurrentIndex(1);}
+void MainWindow::on_btn_exit_clicked() {close();}
+void MainWindow::on_btn_join_room_clicked()
 {
-    close();
-}
+    canvas = new Render(ui->textEdit->toPlainText().split(QRegExp("[\n]"),QString::SkipEmptyParts));
 
-void MainWindow::on_btn_desc_clicked()
-{
-    ui->stackedwidget->setCurrentIndex(1);
-}
-
-
-void MainWindow::on_button_back_clicked()
-{
-    ui->stackedwidget->setCurrentIndex(0);
+    canvas->showView();
 }
 

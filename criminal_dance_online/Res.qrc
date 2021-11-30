@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/resources">
+        <file>images/Accomplice.png</file>
+        <file>images/Alibi.png</file>
+        <file>images/back.png</file>
+        <file>images/background_1.png</file>
+        <file>images/background_2.png</file>
+        <file>images/background_3.png</file>
+        <file>images/Barter.png</file>
+        <file>images/Bastet.png</file>
+        <file>images/Bystander.png</file>
+        <file>images/Constabulary.png</file>
+        <file>images/Culprit.png</file>
+        <file>images/Detective.png</file>
+        <file>images/First_Finder.png</file>
+        <file>images/Information_Exchange.png</file>
+        <file>images/Juvenile.png</file>
+        <file>images/Rumor.png</file>
+        <file>images/Witness.png</file>
+    </qresource>
+</RCC>
