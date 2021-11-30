@@ -227,7 +227,7 @@ void Player::use_card(const int& index){
         case 2:{ // CULPRIT -> Criminals wins and print out the result
             set_type(Player::Type::CULPRIT);
             
-            cout << "The CULPRIT used his/her last card" << endl;
+            cout << endl << "The CULPRIT used his/her last card" << endl;
             cout << "CULPRIT and ACCOMPLICE wins" << endl << endl;
             
             Player* temp = this;
@@ -259,7 +259,7 @@ void Player::use_card(const int& index){
             else { 
                 target->set_type(Player::Type::CULPRIT);
                 
-                cout << "The DETECTIVE found the CULPRIT." << endl;
+                cout << endl << "The DETECTIVE found the CULPRIT." << endl;
                 cout << "CIVILIAN wins" << endl << endl;
                 
                 Player* temp = this;
@@ -285,10 +285,9 @@ void Player::use_card(const int& index){
 
         case 6: // WITNESS -> choose a player to view his/her all card in hand.
             target = select_target();
-            cout << endl;
-            
+ 
             cout << target->get_name() << "'s hands: ";
-            cout << target->get_hand() << endl << endl;
+            cout << target->get_hand() << endl;
             return;
 
         case 7: // BYSTANDER -> do nothings
@@ -310,7 +309,7 @@ void Player::use_card(const int& index){
                 delete removing_card;
                 hand.erase(hand.begin()+index);
                 
-                cout << "The BASTET made the targeted player discard the CULPRIT card." << endl;
+                cout << endl << "The BASTET made the targeted player discard the CULPRIT card." << endl;
                 cout << "CIVILIAN wins" << endl << endl;
                 Player* temp = this;
                 do{
@@ -352,7 +351,6 @@ void Player::use_card(const int& index){
                 
                 // this player does not have any passable card to pass, so skip to the next player 
                 if(passing_card_index == -1){
-                    cout << endl;
                     cout << "You ( " << current->get_name() << " ) don't have any passable cards to pass to " << current->next_player->get_name() << " ." << endl;
                     current = current->next_player;
                     continue;
@@ -387,7 +385,6 @@ void Player::use_card(const int& index){
                 
                 // the previous player does not have any drawable card to let current player draw, so skip the current player to next player.
                 if(draw_card_index == -1){
-                    cout << endl;
                     cout << current->prev_player->get_name() << " doesn't have any drawable cards to let you ( " << current->get_name() << " ) draw." << endl;
                     current = current->next_player;
                     continue;
@@ -413,20 +410,22 @@ void Player::use_card(const int& index){
             reset_AllCards_selectable();
             Player* current = this;
             target = select_target();
-            cout << endl;
             int current_give_card_index = current->exchange_select_card();
-            cout << endl;
-            int target_give_card_index = target->exchange_select_card();
+            int target_give_card_index{};
             
             // current player does not have any cards in hand, take the card from the targeted player
             if(current_give_card_index == -1){
+                cout << "You ( " << current->get_name() << " ) does not have any cards in hand, so you will take a card from " 
+                     << target->get_name() << " instead of exchanging card." << endl << endl;
                 // add the taken card to the current player and remove from the targeted player
+                target_give_card_index = target->exchange_select_card();
                 current->add_card(target->get_card(target_give_card_index));
                 target->hand.erase(target->hand.begin()+target_give_card_index);
             }
             
             // exchange card
             else{
+                target_give_card_index = target->exchange_select_card();
                 // add the received card to the current player and add the given card to the targeted player
                 current->add_card(target->get_card(target_give_card_index));
                 target->add_card(current->get_card(current_give_card_index));
@@ -448,7 +447,7 @@ void Player::use_card(const int& index){
 void Player::print_select_target_list(int& player_index){
     Player* temp = this->next_player;
     player_index = 1;
-    cout << "Choose a player to target: " << endl;
+    cout << endl << "Choose a player to target: " << endl;
     while (temp != this){
         cout << player_index << ". " << temp->get_name() << endl;
         temp = temp->next_player;
@@ -481,7 +480,7 @@ Player* Player::select_target(){
         // leave the loop only when the targeted player have card in hand
         if(target->hand.size() > 0) 
             break;
-        cout << "You can't choose players with no cards." << endl << endl;
+        cout << "You can't choose players with no cards." << endl;
     }
     
     cout << endl;
@@ -508,7 +507,7 @@ const int Player::exchange_select_card()const{
         // For INFO_EXCHANGE card only, since BARTER and BASTET card will always selectable
         // the received card cannot be passed again
         if(hand[selected_card]->can_select() == false){
-            cout << "This card cannot be passed again." << endl;
+            cout << "This card cannot be passed again.";
         }
         
     }while(hand[selected_card]->can_select() == false);
@@ -535,7 +534,7 @@ const int Player::draw_select_card()const{
         
         // the drawn card cannot be drawn again
         if(prev_player->hand[draw_selected_card]->can_select() == false){
-            cout << "This card cannot be drawn again." << endl << endl;
+            cout << "This card cannot be drawn again." << endl;
         }
         
     }while(prev_player->hand[draw_selected_card]->can_select() == false);
