@@ -1,4 +1,4 @@
-EXE := CriminalDance.exe
+EXE := Criminal_Dance_console_text_version.exe
 SOURCES := Card.cpp GameEngine.cpp main.cpp Player.cpp
 OBJECTS := $(patsubst %.cpp,%.o,$(SOURCES))
 
