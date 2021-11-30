@@ -97,9 +97,9 @@ Also, Player type will not change each turn to who holding the CULPRIT card sinc
 Player type will only be changed when using card that will change identity permanently, ie, [CULPRIT, ACCOMPLICE] and when CULPRIT get catched.
 ********************************************
 How to use the program:
-  step 1: First enter the number of players of the match.
-  step 2: Then enter the name one by one.
-  step 3: Player can play the game by enter their choose. And the game goes on.
+  step 1: Enter the number of players of the match.
+  step 2: Enter the player's name one by one.
+  step 3: Player can play the game by enter their choose. And the game goes on until finished.
   
 Player creating order:
   For example in the player naming section:
@@ -110,7 +110,7 @@ Player creating order:
   
   a's next player is b; b's next player is c; c's next player is a
   a left hand side is b; b left hand side is c; c left hand side is a
-  The game goes in circular clockwise direction, ie. a->b->c->a/ b->c->a->b / c->a->b->c.
+  The game conducted in circular clockwise direction, ie. a->b->c->a/ b->c->a->b / c->a->b->c.
   
   Here is an actual creating the match:
       How many players? (3-8)
