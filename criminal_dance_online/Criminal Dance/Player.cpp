@@ -210,9 +210,9 @@ const bool Player::can_select_card(const int& index) const{
 // Input the card position in vector hand and use the card, ie. do operation according to the card type.
 void Player::use_card(const int& index){
     Player* target;
-    Card* removing_card = hand[index];
+    Card* const removing_card = hand[index];
     
-    int card_type = static_cast<int>(removing_card->get_type());
+    const int card_type = static_cast<int>(removing_card->get_type());
 
     // Because BASTET card will always exist on the game, so it will not be deleted when used
     if(static_cast<int>(removing_card->get_type())!=8){
@@ -298,7 +298,7 @@ void Player::use_card(const int& index){
             reset_AllCards_selectable();
             
             target = select_target();
-            int discard_card_index = target->exchange_select_card();
+            const int discard_card_index = target->exchange_select_card();
             
             // targered player discard the CULPRIT card -> CIVILIAN wins and print out the result
             if(discard_card_index == target->has_card(2)){
@@ -347,7 +347,7 @@ void Player::use_card(const int& index){
             // repect the process for a round.
             do{
                 cout << endl;
-                int passing_card_index = current->exchange_select_card();
+                const int passing_card_index = current->exchange_select_card();
                 
                 // this player does not have any passable card to pass, so skip to the next player 
                 if(passing_card_index == -1){
@@ -381,7 +381,7 @@ void Player::use_card(const int& index){
             // repect the process for a round.
             do{
                 cout << endl;
-                int draw_card_index = current->draw_select_card();
+                const int draw_card_index = current->draw_select_card();
                 
                 // the previous player does not have any drawable card to let current player draw, so skip the current player to next player.
                 if(draw_card_index == -1){
@@ -410,22 +410,21 @@ void Player::use_card(const int& index){
             reset_AllCards_selectable();
             Player* current = this;
             target = select_target();
-            int current_give_card_index = current->exchange_select_card();
-            int target_give_card_index{};
+            const int current_give_card_index = current->exchange_select_card();
             
             // current player does not have any cards in hand, take the card from the targeted player
             if(current_give_card_index == -1){
                 cout << "You ( " << current->get_name() << " ) does not have any cards in hand, so you will take a card from " 
                      << target->get_name() << " instead of exchanging card." << endl << endl;
                 // add the taken card to the current player and remove from the targeted player
-                target_give_card_index = target->exchange_select_card();
+                const int target_give_card_index = target->exchange_select_card();
                 current->add_card(target->get_card(target_give_card_index));
                 target->hand.erase(target->hand.begin()+target_give_card_index);
             }
             
             // exchange card
             else{
-                target_give_card_index = target->exchange_select_card();
+                const int target_give_card_index = target->exchange_select_card();
                 // add the received card to the current player and add the given card to the targeted player
                 current->add_card(target->get_card(target_give_card_index));
                 target->add_card(current->get_card(current_give_card_index));
