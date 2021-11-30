@@ -259,7 +259,7 @@ void Player::use_card(const int& index){
             else { 
                 target->set_type(Player::Type::CULPRIT);
                 
-                cout << endl << "The DETECTIVE found the CULPRIT." << endl;
+                cout << "The DETECTIVE found the CULPRIT." << endl;
                 cout << "CIVILIAN wins" << endl << endl;
                 
                 Player* temp = this;
