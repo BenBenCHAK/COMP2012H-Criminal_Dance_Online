@@ -123,30 +123,28 @@ Player creating order:
 
 
         | c: Civilian
-        | [ CULPRIT  FIRST_FINDER  ALIBI  DETECTIVE  ]
+        | [  FIRST_FINDER  RUMOR  DETECTIVE  BASTET  ]
         | a: Civilian
-        | [ JUVENILE  INFO_EXCHANGE  WITNESS  DETECTIVE  ]
+        | [  BARTER  ALIBI  INFO_EXCHANGE  ACCOMPLICE  ]
         | b: Civilian
-        | [ INFO_EXCHANGE  ALIBI  ALIBI  BYSTANDER  ]
+        | [  CULPRIT  WITNESS  RUMOR  JUVENILE  ]
 
        ================ Match created ================
 
       There are player holding JUVENILE card (He/She will know which player is holding the CULPRIT card at the beginning).
-      a knows c is holding the CULPRIT card.
-
+      b knows b is holding the CULPRIT card.
 
         | c: Civilian
-        | [ CULPRIT  FIRST_FINDER  ALIBI  DETECTIVE  ]
+        | [  FIRST_FINDER  RUMOR  DETECTIVE  BASTET  ]
         | a: Civilian
-        | [ JUVENILE  INFO_EXCHANGE  WITNESS  DETECTIVE  ]
+        | [  BARTER  ALIBI  INFO_EXCHANGE  ACCOMPLICE  ]
         | b: Civilian
-        | [ INFO_EXCHANGE  ALIBI  ALIBI  BYSTANDER  ]
-
+        | [  CULPRIT  WITNESS  RUMOR  JUVENILE  ]
 
        ================ ROUND 1 ================
 
       c: Please select a card to use.
-      Card List: [ CULPRIT  FIRST_FINDER  ALIBI  DETECTIVE  ]
+      Card List: [  FIRST_FINDER  RUMOR  DETECTIVE  BASTET  ]
 
 
 Crad selection:
@@ -155,16 +153,17 @@ Crad selection:
   Example:
       a: Please select a card to use.
       Card List: [ RUMOR  DETECTIVE  FIRST_FINDER  INFO_EXCHANGE  ]
+      
   Player a need to select a card by entering integer 1/2/3/4.
-  
   
  Target selection:
   Select target player by entering the provided corresponding integer number of the player.
   
   Example:
-        Choose a player to target: 
+      Choose a player to target: 
       1. c
       2. a
+      
    player b need to enter 1 to target player c or 2 to target player a.
    
    
@@ -175,70 +174,80 @@ Crad selection:
     1) DETECTIVE sucessfully find the CULPRIT card           - Civilians wins & Criminals loses 
         
             c: Please select a card to use.
-            Card List: [ INFO_EXCHANGE  DETECTIVE  DETECTIVE  ]
-            2
-            Choose a player to target: 
+            Card List: [  DETECTIVE  BASTET  ALIBI  ]
+            1
+
+            Choose a player to target:
             1. a
             2. b
             2
 
             The DETECTIVE found the CULPRIT.
             CIVILIAN wins
+
             c wins
             a wins
             b lose
 
               | a: Civilian
-              | [ BASTET  ALIBI  ]
+              | [  INFO_EXCHANGE  ACCOMPLICE  RUMOR  ]
               | b: Culprit
-              | [ RUMOR  CULPRIT  ]
+              | [  CULPRIT  WITNESS  RUMOR  ]
               | c: Civilian
-              | [ INFO_EXCHANGE  DETECTIVE  ]
-            Game Over
+              | [  BASTET  ALIBI  ]
+
+             ================ Game Over ================
 
     2) CULPRIT used as the last card                         - Civilians loses & Criminals wins 
     
             c: Please select a card to use.
-            Card List: [ CULPRIT  ]
+            Card List: [  CULPRIT  ]
             1
+
             The CULPRIT used his/her last card
             CULPRIT and ACCOMPLICE wins
+
             c wins
-            a lose
+            a wins
             b lose
 
-              | a: Civilian
-              | [ INFO_EXCHANGE  ]
+              | a: Accomplice
+              | [  INFO_EXCHANGE  ]
               | b: Civilian
-              | [ INFO_EXCHANGE  ]
+              | [  ALIBI  ]
               | c: Culprit
-              | [ ]
-            Game Over
+              | [  ]
+
+             ================ Game Over ================
     
     3) BASTET force targeted player discard the CULPRIT card - Civilians wins & Criminals loses 
     
-            b: Please select a card to use.
-            Card List: [ WITNESS  DETECTIVE  ALIBI  BASTET  ]
-            4
-            Choose a player to target: 
-            1. c
-            2. a
+            a: Please select a card to use.
+            Card List: [  WITNESS  BASTET  DETECTIVE  ALIBI  ]
             2
 
-            a: Please select a card to pass/exchange/abandon.
-            Card List: [ RUMOR  ACCOMPLICE  CULPRIT  ]
+            Choose a player to target:
+            1. b
+            2. c
+            1
+
+            b: Please select a card to pass to c / exchange / discard.
+            Card List: [  INFO_EXCHANGE  RUMOR  CULPRIT  ALIBI  ]
             3
+
             The BASTET made the targeted player discard the CULPRIT card.
             CIVILIAN wins
-            b wins
-            c wins
-            a lose
 
+            a wins
+            b lose
+            c wins
+
+              | b: Culprit
+              | [  INFO_EXCHANGE  RUMOR  ALIBI  ]
               | c: Civilian
-              | [ BYSTANDER  ALIBI  WITNESS  ]
-              | a: Culprit
-              | [ RUMOR  ACCOMPLICE  ]
-              | b: Civilian
-              | [ WITNESS  DETECTIVE  ALIBI  BASTET  ]
-            Game Over
+              | [  INFO_EXCHANGE  DETECTIVE  ACCOMPLICE  ]
+              | a: Civilian
+              | [  WITNESS  DETECTIVE  ALIBI  ]
+
+             ================ Game Over ================
   
