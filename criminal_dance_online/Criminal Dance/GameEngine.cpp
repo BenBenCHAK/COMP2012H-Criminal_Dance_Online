@@ -26,7 +26,7 @@ GameEngine::GameEngine():number_of_players(prompt_for_num_players()), deck(set_d
 GameEngine::~GameEngine(){
     Player* p1 = current_player;
     Player* p2 = current_player->next_player;
-    p1->prev_player->next_player == nullptr;
+    p1->prev_player->next_player = nullptr;
     for(int i = 0; i < number_of_players;++i){
         delete p1;
         p1 = p2;
