@@ -189,7 +189,7 @@ void GameEngine::run(){
     
     // print the result
     print_all_player_status();
-    cout << "Game Over" << endl;
+    cout << endl << " ================ Game Over ================" << endl;
     return;
 }
 
