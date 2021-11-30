@@ -1,25 +1,9 @@
 #include "Card.h"
 
-// constructor initialize the card type and set the card can be used
-Card::Card(const int& card_type) : type(static_cast<Type>(card_type)), selectable(true) {
+Card::Card(int card_type) : type(static_cast<Type>(card_type)), useable(true) {
 
 }
 
-// mutator that set whether the card can be used or not
-void Card::set_selectable(bool k){
-    this->selectable = k;
-}
-
-// accessors
-const Card::Type Card::get_type() const{
-    return type;
-}
-
-const bool Card::can_select() const{
-    return selectable;
-}
-
-// for Qt display different type of card
 string Card::typeToAddress() const
 {
     switch (type) {
@@ -50,4 +34,16 @@ string Card::typeToAddress() const
     }
 
     return "";
+}
+
+Card::Type Card::get_type() const{
+    return type;
+}
+
+void Card::set_useable(bool k){
+    this->useable = k;
+}
+
+bool Card::can_use() const{
+    return useable;
 }
